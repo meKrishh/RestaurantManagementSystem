@@ -1,0 +1,25 @@
+###
+GET http://localhost:3000/users
+
+
+###
+DELETE http://localhost:3001/user/61a33e4ce721a73bbbbbe9f2
+
+
+###
+POST http://localhost:3000/signup
+Content-Type: application/json
+{
+   "email": "krishnabisht@gmail.com",
+    "password":"john",
+    "role": "admin"
+}
+
+
+###
+PATCH  http://localhost:3000/subscribers/615e7dd69277a0b8613173bb
+Content-Type: application/json
+{
+    "name" : "New person"
+}
+
