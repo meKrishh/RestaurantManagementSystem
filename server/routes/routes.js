@@ -13,29 +13,6 @@ router.post('/createSubAdmins',userController.allowIfLoggedin, userController.cr
 router.post('/login',  userController.login)  //API for login
 router.post('/signup', userController.signup)  // API for signup
 router.get('/logout', userController.allowIfLoggedin, userController.logout)  //API for logout
-
-
-
-//router.put("/logout",userController.allowIfLoggedin,userController.logout);
-
-
-// router.get('/supervisor',userController.getSupervisors)
-
-// router.post('/admin/restaurants',userController.CreateAdminRestaurants)
-
-// router.post('/supervisor/restaurants',userController.CreateSupervisorRestaurants)
-
-// router.post('/createSupervisor',userController.createSupervisor)
-
-
-router.get('/user/:userId', userController.allowIfLoggedin, userController.getUser);
-
-//router.get('/users', userController.allowIfLoggedin, userController.grantAccess('readAny', 'profile'), userController.getUsers);  
-//router.get('/users',  userController.grantAccess('readAny', 'profile'), userController.getUsers);
-
-router.put('/user/:userId', userController.allowIfLoggedin, userController.grantAccess('updateAny', 'profile'), userController.updateUser);
-
-//router.delete('/user/:userId', userController.allowIfLoggedin, userController.grantAccess('deleteAny', 'profile'), userController.deleteUser);   
-router.delete('/user/:userId', userController.deleteUser);
+router.delete('/user/:userId', userController.deleteUser)  //API to delete user
 
 module.exports = router;
