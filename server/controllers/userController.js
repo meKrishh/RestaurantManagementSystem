@@ -11,10 +11,6 @@ const express = require('express')
 const app =express()
 app.use(bodyParser.urlencoded({ extended: true }))
 const cookieParser = require('cookie-parser')
-const setCookieParser = require('set-cookie-parser')
-const bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({ extended: true }))
-
 app.use(cookieParser());
 
 async function hashPassword(password) {
