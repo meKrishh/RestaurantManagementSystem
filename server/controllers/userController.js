@@ -327,25 +327,8 @@ exports.grantAccess = function(action, resource) {
 
 exports.allowIfLoggedin = async (req, res, next) => { 
   try {
-  //const user = req.cookies
-  //req.cookies = res.locals.loggedInUser
-  res.cookie("userData", res.locals.loggedInUser)
-  res.send(req.cookies)
-  const cookies = setCookieParser.parse(res)
-  const user  = req.cookies // JSON.stringify(req.cookies)
-  console.log("My cookies are:"+user)
-  var testcookie = JSON.parse(req.cookies.userData)
-  console.log("My test cookies are:"+testcookie)
-  
-  //res.locals.loggedInUser = null;
-  //req.cookies = res.locals.loggedInUser
+  const user =  res.locals.loggedInUser.email
  
-  // res.send(req.cookies)
-  //req.cookies[userData]//JSON.stringify(req.cookies) // res.send(req.cookies) 
-  //res.send(req.cookies)
-  // console.log(cookieParser.JSONCookies(cookies))
-  // console.log('Cookies: ', req.cookies["userData"])
-  // console.log("allowIfLoggedin UserId is : "+user)
   if (!user)
     return res.status(401).json({
     error: "You need to be logged in to access this route"
@@ -364,15 +347,14 @@ exports.allowIfLoggedin = async (req, res, next) => {
 //Route for destroying cookie
 exports.logout = async (req, res)=>{
   //it will clear the userData cookie
-  //req.cookies.email = ""
-  //req.cookies.email = "admin12345@gmail.com"
+
   res.clearCookie()
   console.log("Logout cokies are :"+req.cookies)
   
   res.status(200).json({
     message: 'User has been logged out'
    })
-  //res.send(req.cookies)
+ 
      }
 
 
